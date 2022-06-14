@@ -1,0 +1,12 @@
+<button 
+class="btn" 
+[ngStyle]="{'background-color': color}"
+(click)="onClick()" 
+>{{text}}
+</button> 
+
+<!-- [ngStyle] es el target de un binding de tipo One-way from data source to view. al target se le asigna un fragmento css. recordar que estamos dentro de una etiqueta html -->
+<!-- "(click)="onClick"" es un bindingde tipo view to source  -->
+<!-- text está definido en el html del app-button -->
+<!-- para el color, usamos la direccion de style entre corchetes. como es una propiedad, se pne la propiedad entre comillas simples y entre corchetes.
+se pone dos puntos color porque se recibe como variable(por  llas llaves). estamos recibiendo el color green. la info viaja del header al template del componente  -->

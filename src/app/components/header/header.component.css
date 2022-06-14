@@ -1,0 +1,7 @@
+header{
+    /*esto lo copio a tipeo desde el video*/
+    display: flex; /* dice que esto es para que los botones y nos e que mas quede alineado*/
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
