@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TASKS } from 'src/app/components//tasks/mock-tasks';
 import {  Taskinterf } from 'src/app/components//tasks/tasks';
 import { Observable, of } from 'rxjs'; //nos permite que el servicio getTask sea asincrónico. Del getTask incluimos en "Taskinterf[]" la palabra "observable"
@@ -10,16 +11,18 @@ import { Observable, of } from 'rxjs'; //nos permite que el servicio getTask sea
 
 
 export class TaskService {
-  constructor() { }
+  private apiUrl = 'http://localhost:5000/tasks'
 
-  getTasks():  Observable<Taskinterf[]> {
-   // const task= of(TASKS) ;
-    return of (TASKS);
-  } //esta funcion nos va a devolver una lista de tareas
-}
+  constructor(
 
-/*tener en cuenta que en el video se ve el export de esta forma:
-export class TasksComponent implements OnInit{
-  (...)
+    private http:HttpClient
+  ) { }
+
+  getTasks():  Observable <Taskinterf[]> {
+   
+    return this.http.get<Taskinterf[]>(this.apiUrl)
+    
+  } 
+
+
 }
-*/
